@@ -1,0 +1,15 @@
+C:\Users\Sofowora\emerald\em\bin\Debug\net7.0\em.exe
+C:\Users\Sofowora\emerald\em\bin\Debug\net7.0\em.deps.json
+C:\Users\Sofowora\emerald\em\bin\Debug\net7.0\em.runtimeconfig.json
+C:\Users\Sofowora\emerald\em\bin\Debug\net7.0\em.dll
+C:\Users\Sofowora\emerald\em\bin\Debug\net7.0\em.pdb
+C:\Users\Sofowora\emerald\em\obj\Debug\net7.0\em.csproj.AssemblyReference.cache
+C:\Users\Sofowora\emerald\em\obj\Debug\net7.0\em.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sofowora\emerald\em\obj\Debug\net7.0\em.AssemblyInfoInputs.cache
+C:\Users\Sofowora\emerald\em\obj\Debug\net7.0\em.AssemblyInfo.cs
+C:\Users\Sofowora\emerald\em\obj\Debug\net7.0\em.csproj.CoreCompileInputs.cache
+C:\Users\Sofowora\emerald\em\obj\Debug\net7.0\em.dll
+C:\Users\Sofowora\emerald\em\obj\Debug\net7.0\refint\em.dll
+C:\Users\Sofowora\emerald\em\obj\Debug\net7.0\em.pdb
+C:\Users\Sofowora\emerald\em\obj\Debug\net7.0\em.genruntimeconfig.cache
+C:\Users\Sofowora\emerald\em\obj\Debug\net7.0\ref\em.dll
