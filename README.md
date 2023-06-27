@@ -1,2 +1,2 @@
 #Emerald
->This is a compiler. It is still a work in progress
+>This is a compiler.
