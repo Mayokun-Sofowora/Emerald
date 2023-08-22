@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Emerald.CodeAnalysis
 {
-    class Evaluator
+    public sealed class Evaluator
     {
         private readonly ExpressionSyntax _root;
         public Evaluator(ExpressionSyntax root)
@@ -18,10 +18,10 @@ namespace Emerald.CodeAnalysis
         private int EvaluateExpression(ExpressionSyntax node)
         {
             //BinaryExpression
-            //NumberExpression
-            if(node is NumberExpressionSyntax n)
+            //LiteralExpression
+            if(node is LiteralExpressionSyntax n)
             {
-                return (int) n.NumberToken.Value;
+                return (int) n.LiteralToken.Value;
             }
             if(node is BinaryExpressionSyntax b)
             {
