@@ -1,22 +1,23 @@
-namespace Emerald.CodeAnalysis
+namespace Emerald.CodeAnalysis.Syntax
 {
     public enum SyntaxKind
     {
         // Tokens
-        LiteralToken,
-        WhiteSpaceToken,
+        BadToken,
         PlusToken,
-        MinusToken,
         StarToken,
         SlashToken,
+        MinusToken,
+        LiteralToken,
+        EndOfFileToken,
+        WhiteSpaceToken,
         OpenParenthesisToken,
         CloseParenthesisToken,
-        BadToken,
-        EndOfFileToken,
         
         // Expressions
-        LiteralExpression,
+        UnaryExpression,
         BinaryExpression,
+        LiteralExpression,
         ParenthesizedExpression
     }
 

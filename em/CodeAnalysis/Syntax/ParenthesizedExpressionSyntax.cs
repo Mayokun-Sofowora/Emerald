@@ -1,4 +1,4 @@
-namespace Emerald.CodeAnalysis
+namespace Emerald.CodeAnalysis.Syntax
 {
     public sealed class ParenthesizedExpressionSyntax : ExpressionSyntax
     {

@@ -1,4 +1,4 @@
-namespace Emerald.CodeAnalysis
+namespace Emerald.CodeAnalysis.Syntax
 {
     public sealed class BinaryExpressionSyntax : ExpressionSyntax
     {
@@ -19,7 +19,5 @@ namespace Emerald.CodeAnalysis
             yield return OperatorToken;
             yield return Right;
         }
-
     }
-
 }

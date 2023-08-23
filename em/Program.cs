@@ -3,6 +3,8 @@ using System.ComponentModel.Design.Serialization;
 using System.Linq;
 
 using Emerald.CodeAnalysis;
+using Emerald.CodeAnalysis.Syntax;
+
 
 namespace Emerald
 {
@@ -31,10 +33,10 @@ namespace Emerald
 
                 //var parser = new Parser(line);
                 //var syntaxTree = parser.Parse();
-                var syntaxTree = SyntaxTree.Parse(line); //for better API XD
+                var syntaxTree = SyntaxTree.Parse(line); //for better API
                 if(showTree)
                 {
-                    Console.ForegroundColor = ConsoleColor.DarkBlue;
+                    Console.ForegroundColor = ConsoleColor.DarkGray;
                     PrettyPrint(syntaxTree.Root);
                     Console.ResetColor();
                 }
