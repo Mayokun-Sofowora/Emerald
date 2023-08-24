@@ -1,14 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.Design.Serialization;
 using System.Linq;
+
 using Emerald.CodeAnalysis;
+using Emerald.CodeAnalysis.Syntax;
+
 
 namespace Emerald
 {
-    class Program{
-        static void Main(string[] args)
+    internal static class Program{
+        private static void Main()
         {
-            bool showTree = false;
+            var showTree = false;
             while(true)
             {
                 Console.Write("> ");
@@ -30,28 +33,26 @@ namespace Emerald
 
                 //var parser = new Parser(line);
                 //var syntaxTree = parser.Parse();
-                var syntaxTree = SyntaxTree.Parse(line); //for better API XD
+                var syntaxTree = SyntaxTree.Parse(line); //for better API
                 if(showTree)
                 {
-                    var color = Console.ForegroundColor;
-                    Console.ForegroundColor = ConsoleColor.DarkBlue;
+                    Console.ForegroundColor = ConsoleColor.DarkGray;
                     PrettyPrint(syntaxTree.Root);
-                    Console.ForegroundColor = color;
+                    Console.ResetColor();
                 }
-                
-                if(syntaxTree.Diagnostics.Any())
-                {
-                    var color = Console.ForegroundColor;
-                    Console.ForegroundColor = ConsoleColor.DarkRed;
-                    foreach(var diagnostic in syntaxTree.Diagnostics)
-                        Console.WriteLine(diagnostic);
-                    Console.ForegroundColor = color;     
-                }
-                else 
+
+                if (!syntaxTree.Diagnostics.Any())
                 {
                     var e = new Evaluator(syntaxTree.Root);
                     var result = e.Evaluate();
                     Console.WriteLine(result);
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    foreach (var diagnostic in syntaxTree.Diagnostics)
+                        Console.WriteLine(diagnostic);
+                    Console.ResetColor();
                 }
             }
         }
@@ -62,13 +63,16 @@ namespace Emerald
             Console.Write(indent);
             Console.Write(marker);
             Console.Write(node.Kind);
+            
             if(node is SyntaxToken t && t.Value != null)
             {
                 Console.Write(" ");
                 Console.Write(t.Value);
             }
+            
             Console.WriteLine();
-            indent += isLast ? "    " : "│   ";
+            
+            indent += isLast ? "   " : "│   ";
 
             var lastChild = node.GetChildren().LastOrDefault();
             //indent += "    "; //indent 4 spaces.

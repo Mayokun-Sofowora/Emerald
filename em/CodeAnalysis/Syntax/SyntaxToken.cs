@@ -1,6 +1,6 @@
-namespace Emerald.CodeAnalysis
+namespace Emerald.CodeAnalysis.Syntax
 {
-    class SyntaxToken : SyntaxNode
+    public sealed class SyntaxToken : SyntaxNode
     {
         public SyntaxToken(SyntaxKind kind, int position, string text, object value)
         {

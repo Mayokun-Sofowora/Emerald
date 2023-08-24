@@ -1,15 +1,16 @@
 using System.Collections.Generic;
 using System.ComponentModel.Design.Serialization;
 using System.Linq;
+using Emerald.CodeAnalysis.Syntax;
 
 namespace Emerald.CodeAnalysis
 {
-    class Evaluator
+    public sealed class Evaluator
     {
         private readonly ExpressionSyntax _root;
         public Evaluator(ExpressionSyntax root)
         {
-            this._root = root;
+            _root = root;
         }
         public int Evaluate()
         {
@@ -17,11 +18,22 @@ namespace Emerald.CodeAnalysis
         }
         private int EvaluateExpression(ExpressionSyntax node)
         {
-            //BinaryExpression
-            //NumberExpression
-            if(node is NumberExpressionSyntax n)
+            if(node is LiteralExpressionSyntax l)
             {
-                return (int) n.NumberToken.Value;
+                return (int) l.LiteralToken.Value;
+            }
+            if(node is UnaryExpressionSyntax u)
+            {
+                var operand = EvaluateExpression(u.Operand);
+                if(u.OperatorToken.Kind == SyntaxKind.PlusToken)
+                    return operand;
+                
+                else if(u.OperatorToken.Kind == SyntaxKind.MinusToken)
+                    return -operand;
+                
+                else
+                    throw new Exception($"Unexpected unary operator {u.OperatorToken.Kind}");
+
             }
             if(node is BinaryExpressionSyntax b)
             {
